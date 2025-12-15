@@ -60,17 +60,13 @@ const Home = () => {
       </Navbar>
 
       {/* Rest of Home Page */}
-      <section id="hero" className="h-screen flex justify-center items-center">
-        <h1 className="text-4xl font-bold">Welcome to My Website 🚀</h1>
+      <section
+        id="hero"
+        className="h-screen flex flex-col justify-center items-center"
+      >
+        <h1 className="text-4xl font-bold">Launch your dream website</h1>
+        <h2>Built for Growth Speed and result</h2>
       </section>
-
-      <h1>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum
-        similique ad necessitatibus nobis perspiciatis numquam enim, molestias
-        earum velit perferendis sint aliquid pariatur architecto quia veritatis
-        iusto minus quam, temporibus, vero cupiditate. Dolore necessitatibus
-        veritatis, repellendus natus quas optio.
-      </h1>
     </>
   );
 };
