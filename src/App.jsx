@@ -4,16 +4,14 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-
+import Layout from "./components/Layout.jsx";
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route index path="/" element=<Home /> />
-          <Route path="/services" element=<Services /> />
-          <Route path="/about" element=<About /> />
-          <Route path="/contact" element=<Contact /> />
+            <Route path="/" element={<Layout />}/>
+          <Route index element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
