@@ -1,6 +1,7 @@
-import React from "react";
-import {Outlet} from "react-router-dom"
-import Footer from "./Footer.jsx/Footer";
+import React, { useState } from "react";
+import { Outlet, Link } from "react-router-dom";
+import Footer from "./Footer/Footer.jsx";
+
 import {
   Navbar,
   NavBody,
@@ -14,26 +15,24 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 const Layout = () => {
-   const [menuOpen, setMenuOpen] = useState(false);
-  
-    const navItems = [
-      { name: "Home", link: "/" },
-      { name: "Services", link: "services" },
-      { name: "About", link: "about" },
-      { name: "Contact", link: "contact" },
-    ];
-  
-  return <>
- 
-    // {/* 🌟 Navbar Section */}
-     <Navbar>
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "Services", link: "/services" },
+    { name: "About", link: "/about" },
+    { name: "Contact", link: "/contact" },
+  ];
+
+  return (
+    <>
+      <Navbar>
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <NavbarButton variant="dark">Get Started</NavbarButton>
+          <NavbarButton href="#contact">Get Started</NavbarButton>
         </NavBody>
 
-        {/* 📱 Mobile Nav */}
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
@@ -43,27 +42,29 @@ const Layout = () => {
             />
           </MobileNavHeader>
 
-          <MobileNavMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)}>
+          <MobileNavMenu isOpen={menuOpen}>
             {navItems.map((item, idx) => (
-              <a
+              <Link
                 key={idx}
-                href={item.link}
-                className="text-black dark:text-white text-lg font-medium"
+                to={item.link}
+                className="text-white text-lg font-medium"
                 onClick={() => setMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <NavbarButton variant="dark" className="mt-4">
+
+            <NavbarButton href="#contact" className="mt-4">
               Get Started
             </NavbarButton>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
+
       <Outlet />
-      <Footer/>
- </>
-  
+      <Footer />
+    </>
+  );
 };
 
 export default Layout;
